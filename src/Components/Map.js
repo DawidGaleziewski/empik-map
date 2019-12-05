@@ -1,21 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Map.css';
 
-const Map = () => {
-  const onClickHandler = event => {
-    const {
-      target: { id },
-      target: { classList }
-    } = event;
-
-    console.log(id);
-    if (id.match(/^(PL-)/)) {
-      classList.toggle('land-toggled');
-    }
-  };
-
+const Map = ({ onClick }) => {
   return (
-    <section onClick={onClickHandler} className="map-section">
+    <section onClick={onClick} className="map-section">
       <svg className="map-svg" viewBox="0 0 620 620">
         <path
           id="PL-DS"
