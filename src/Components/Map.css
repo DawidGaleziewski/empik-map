@@ -1,0 +1,27 @@
+.map-section {
+  width: 100%;
+  padding-top: 100%; /* Keeps the aspect ratio for the svg image box model */
+  position: relative;
+  margin: 0 auto;
+  max-width: 40rem;
+}
+.map-svg {
+  position: absolute;
+  width: 100%; /* Keeps svg responsive in relation to its container*/
+  left: 0;
+  top: 0;
+}
+
+.land {
+  cursor: pointer;
+  fill: #cccccc;
+  fill-opacity: 1;
+  stroke: white;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+}
+
+.land:hover,
+.land-toggled {
+  fill: #000;
+}
