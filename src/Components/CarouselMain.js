@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
+import axios from 'axios';
 
-const CarouselMain = () => {
+const CarouselMain = ({ merchansideList }) => {
   return (
     <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="http://lorempixel.com/400/200/technics/5/"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {merchansideList.map(merchanside => {
+        const { id, itemName, imageUrl, description } = merchanside;
+        return (
+          <Carousel.Item key={id.toString()}>
+            <img className="d-block w-100" src={imageUrl} alt={itemName} />
+            <Carousel.Caption>
+              <h3>{itemName}</h3>
+              <p>{description}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        );
+      })}
+      {/* 
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -40,7 +43,7 @@ const CarouselMain = () => {
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
         </Carousel.Caption>
-      </Carousel.Item>
+      </Carousel.Item> */}
     </Carousel>
   );
 };
