@@ -4,9 +4,9 @@ import CarouselMain from './Components/CarouselMain';
 import Map from './Components/Map';
 import axios from 'axios';
 
-const filterMerchandiseForRegion = (merchandiseList, regionID) => {
-  merchandiseList.filter(merchandise => {
-    return merchandise.availableInRegions.contains(regionID);
+const filterMerchandise = (merchandiseList, regionID) => {
+  return merchandiseList.filter(merchandise => {
+    return merchandise.availableInRegions.includes(regionID);
   });
 };
 
@@ -28,8 +28,7 @@ const Container = () => {
   const [merchandiseState, setMerchandiseState] = useState([]);
   useEffect(() => {
     axios.get('/api/merchandise').then(({ data }) => {
-      setMerchandiseState(data);
-      console.log(merchandiseState);
+      setMerchandiseState(filterMerchandise(data, regionState));
     });
   }, [regionState]);
 

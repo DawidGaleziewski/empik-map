@@ -11,7 +11,6 @@ let merchandise = [
     itemName: 'Słuchawki',
     imageUrl: 'http://lorempixel.com/400/200/technics/5/',
     availableInRegions: [
-      'PL-DS',
       'PL-LB',
       'PL-ZP',
       'PL-WP',
@@ -35,7 +34,6 @@ let merchandise = [
     itemName: 'Kurs języka angielskiego',
     imageUrl: 'http://lorempixel.com/400/200/business/3/',
     availableInRegions: [
-      'PL-DS',
       'PL-LB',
       'PL-ZP',
       'PL-WP',
@@ -82,7 +80,6 @@ let merchandise = [
     itemName: 'Odtwarzacz MP3',
     imageUrl: 'http://lorempixel.com/400/200/technics/10/',
     availableInRegions: [
-      'PL-DS',
       'PL-LB',
       'PL-ZP',
       'PL-WP',
