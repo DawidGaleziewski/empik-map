@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Carousel } from 'react-bootstrap';
+import './CarouselMain.scss';
 
 const CarouselMain = ({
   merchansideList,
@@ -10,10 +11,10 @@ const CarouselMain = ({
     setCarouselIndexState(selectedIndex);
   };
   return (
-    <section>
+    <section className="carousel-main">
       {merchansideList.length > 0 ? (
         <Fragment>
-          <h2>Dostępne w Twoim województwie</h2>
+          <h2 className="main-header">Dostępne w Twoim województwie</h2>
           <Carousel activeIndex={carouselIndexState} onSelect={onSelectHandler}>
             {merchansideList.map(merchanside => {
               const { id, itemName, imageUrl, description } = merchanside;
@@ -34,7 +35,7 @@ const CarouselMain = ({
           </Carousel>
         </Fragment>
       ) : (
-        <h2>Brak promocji na tym terenie</h2>
+        <h2 className="main-header">Brak promocji na tym terenie</h2>
       )}
     </section>
   );

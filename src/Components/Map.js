@@ -4,7 +4,7 @@ import './Map.css';
 const Map = ({ onClick }) => {
   return (
     <section onClick={onClick} className="map-section">
-      <svg className="map-svg" viewBox="0 0 620 620">
+      <svg className="map-svg" viewBox="-20 -20 650 620">
         <path
           id="PL-DS"
           className="land"
