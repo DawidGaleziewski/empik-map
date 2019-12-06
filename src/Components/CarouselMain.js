@@ -15,7 +15,12 @@ const CarouselMain = ({
       {merchansideList.length > 0 ? (
         <Fragment>
           <h2 className="main-header">Dostępne w Twoim województwie</h2>
-          <Carousel activeIndex={carouselIndexState} onSelect={onSelectHandler}>
+          <Carousel
+            slide={false}
+            // activeIndex={carouselIndexState}
+            activeIndex={0} //! Stoped slider for styling
+            onSelect={onSelectHandler}
+          >
             {merchansideList.map(merchanside => {
               const { id, itemName, imageUrl, description } = merchanside;
               return (

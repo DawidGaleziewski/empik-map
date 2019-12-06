@@ -6,4 +6,24 @@
   margin: 15px auto 0 auto;
 
   border-bottom: 1px solid #dee1e6;
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-image: url('../assets/arrow-right.svg');
+    background-color: hsla(0, 0%, 100%, 0.5);
+    height: 67px;
+    width: 41px;
+    border-radius: 3px 0 0 3px;
+    opacity: 0;
+    transition: all 0.3s linear;
+  }
+
+  &:hover .carousel-control-prev-icon,
+  &:hover .carousel-control-next-icon {
+    opacity: 1;
+  }
+
+  .carousel-control-prev-icon {
+    transform: rotate(180deg) translateY(-5%);
+  }
 }
