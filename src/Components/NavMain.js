@@ -7,12 +7,16 @@ import {
   FormControl,
   Button
 } from 'react-bootstrap';
+import './NavMain.css';
+import { ReactComponent as EmpikLogo } from '../assets/empik-logo.svg';
 
 const NavMain = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Brand href="#home">
+        <EmpikLogo />
+      </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
