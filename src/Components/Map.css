@@ -4,6 +4,13 @@
   position: relative;
   margin: 0 auto;
   max-width: 40rem;
+  background-color: #fff;
+  border: 1px solid #dee1e6;
+}
+@media screen and (min-width: 40rem) {
+  .map-section {
+    padding-top: 40rem;
+  }
 }
 .map-svg {
   position: absolute;

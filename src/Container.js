@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import './Container.scss';
 import NavMain from './Components/NavMain';
 import CarouselMain from './Components/CarouselMain';
 import Map from './Components/Map';
@@ -39,15 +40,18 @@ const Container = () => {
       <header>
         <NavMain />
       </header>
-      <h1>Sprawdź nasze lokalne promocje.</h1>
-      <Map onClick={onClickHandler} />
-      {regionState ? (
-        <CarouselMain
-          merchansideList={[...merchandiseState]}
-          setCarouselIndexState={setCarouselIndexState}
-          carouselIndexState={carouselIndexState}
-        />
-      ) : null}
+
+      <main className="main">
+        <h1 className="main-header">Empik lokalne promocje</h1>
+        <Map onClick={onClickHandler} />
+        {regionState ? (
+          <CarouselMain
+            merchansideList={[...merchandiseState]}
+            setCarouselIndexState={setCarouselIndexState}
+            carouselIndexState={carouselIndexState}
+          />
+        ) : null}
+      </main>
     </Fragment>
   );
 };
