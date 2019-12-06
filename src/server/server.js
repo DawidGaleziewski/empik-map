@@ -16,7 +16,6 @@ let merchandise = [
       'PL-WP',
       'PL-PM',
       'PL-KP',
-      'PL-OP',
       'PL-WN',
       'PL-PD',
       'PL-MZ',

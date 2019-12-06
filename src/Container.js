@@ -21,6 +21,7 @@ const Container = () => {
     if (id.match(/^(PL-)/)) {
       classList.toggle('land-toggled');
       setRegionState(id);
+      setCarouselIndexState(0);
       console.log(id);
       console.log(regionState);
     }
@@ -32,13 +33,19 @@ const Container = () => {
     });
   }, [regionState]);
 
+  const [carouselIndexState, setCarouselIndexState] = useState(0);
+
   return (
     <Fragment>
       <NavMain />
       <h1>Sprawdź nasze lokalne promocje.</h1>
       <Map onClick={onClickHandler} />
       {regionState ? (
-        <CarouselMain merchansideList={[...merchandiseState]} />
+        <CarouselMain
+          merchansideList={[...merchandiseState]}
+          setCarouselIndexState={setCarouselIndexState}
+          carouselIndexState={carouselIndexState}
+        />
       ) : null}
     </Fragment>
   );

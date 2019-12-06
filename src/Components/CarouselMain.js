@@ -1,14 +1,20 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-import axios from 'axios';
 
-const CarouselMain = ({ merchansideList }) => {
+const CarouselMain = ({
+  merchansideList,
+  setCarouselIndexState,
+  carouselIndexState
+}) => {
+  const onSelectHandler = (selectedIndex, event) => {
+    setCarouselIndexState(selectedIndex);
+  };
   return (
     <section>
       {merchansideList.length > 0 ? (
         <Fragment>
           <h2>Dostępne w Twoim województwie</h2>
-          <Carousel>
+          <Carousel activeIndex={carouselIndexState} onSelect={onSelectHandler}>
             {merchansideList.map(merchanside => {
               const { id, itemName, imageUrl, description } = merchanside;
               return (
