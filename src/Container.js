@@ -44,12 +44,6 @@ const Container = () => {
       <main className="main">
         <h1 className="main-header">Empik lokalne promocje</h1>
         <Map onClick={onClickHandler} />
-        {/* Setting to static desplay - testing only */}
-        <CarouselMain
-          merchansideList={[...merchandiseState]}
-          setCarouselIndexState={setCarouselIndexState}
-          carouselIndexState={carouselIndexState}
-        />
         {regionState ? (
           <CarouselMain
             merchansideList={[...merchandiseState]}
