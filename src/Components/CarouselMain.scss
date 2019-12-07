@@ -7,6 +7,7 @@
 
   border-bottom: 1px solid #dee1e6;
 
+  // Arrows style
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     background-image: url('../assets/arrow-right.svg');
@@ -16,14 +17,49 @@
     border-radius: 3px 0 0 3px;
     opacity: 0;
     transition: all 0.3s linear;
+    border: 1px solid #dee1e6;
   }
 
+  .carousel-control-next-icon {
+    position: absolute;
+    right: 0;
+    border-right: none;
+  }
+  .carousel-control-prev-icon {
+    position: absolute;
+    left: 0;
+    border-left: none;
+    transform: rotate(180deg) translateY(-5%);
+  }
+
+  // Arrows however on carousel
   &:hover .carousel-control-prev-icon,
   &:hover .carousel-control-next-icon {
     opacity: 1;
   }
 
-  .carousel-control-prev-icon {
-    transform: rotate(180deg) translateY(-5%);
+  // Single arrow however
+  .carousel-control-prev-icon:hover,
+  .carousel-control-next-icon:hover {
+    background-image: url('../assets/arrow-hover.svg');
+    background-color: #fff;
+    box-shadow: -3px 0 3px rgba(0, 0, 0, 0.3);
+  }
+
+  // Carousel indicators
+  .carousel-indicators {
+    li {
+      border-radius: 100%;
+      width: 10px;
+      height: 10px;
+      background: hsla(0, 0%, 100%, 0.5);
+      border: 1px solid #999;
+      transition: all 0.2s ease-in;
+    }
+
+    li.active {
+      background: #fc7c41;
+      transform: scale(1.6);
+    }
   }
 }

@@ -16,9 +16,8 @@ const CarouselMain = ({
         <Fragment>
           <h2 className="main-header">Dostępne w Twoim województwie</h2>
           <Carousel
-            slide={false}
-            // activeIndex={carouselIndexState}
-            activeIndex={0} //! Stoped slider for styling
+            slide={true}
+            activeIndex={carouselIndexState}
             onSelect={onSelectHandler}
           >
             {merchansideList.map(merchanside => {
