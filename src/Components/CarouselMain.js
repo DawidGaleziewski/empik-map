@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
-import { Carousel } from 'react-bootstrap';
+import ImageCarousel from './ImageLazyLoad';
+import { Carousel, Spinner } from 'react-bootstrap';
 import './CarouselMain.scss';
+import ImageLazyLoad from './ImageLazyLoad';
 
 const CarouselMain = ({
   merchansideList,
@@ -10,6 +12,7 @@ const CarouselMain = ({
   const onSelectHandler = (selectedIndex, event) => {
     setCarouselIndexState(selectedIndex);
   };
+
   return (
     <section className="carousel-main">
       {merchansideList.length > 0 ? (
@@ -22,13 +25,10 @@ const CarouselMain = ({
           >
             {merchansideList.map(merchanside => {
               const { id, itemName, imageUrl, description } = merchanside;
+
               return (
                 <Carousel.Item key={id.toString()}>
-                  <img
-                    className="d-block w-100"
-                    src={imageUrl}
-                    alt={itemName}
-                  />
+                  <ImageCarousel src={imageUrl} alt={itemName} />
                   <Carousel.Caption>
                     <h3>{itemName}</h3>
                     <p>{description}</p>
