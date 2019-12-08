@@ -1,15 +1,18 @@
+// Mask when element shows
 .carousel-mask {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  height: 100%;
+  height: calc(100vh - 56px);
   width: 100%;
-  background-color: black;
+  background-color: #000;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
 }
+
+// carousel section
 .carousel-main {
   position: absolute;
   top: 4rem;
@@ -17,26 +20,20 @@
   right: 0;
   transition: opacity 1.5s ease-in-out;
   opacity: 0;
-
-  .btn-close-carousel {
-    display: inline-block;
-    background: red;
-    vertical-align: top;
-  }
-
-  .main-header {
-    vertical-align: top;
-    border-bottom: 1px solid #dee1e6;
-    display: inline;
-  }
-
   max-width: 40rem;
   margin: 15px auto 0 auto;
   border-bottom: 1px solid #dee1e6;
 
+  .carousel-item__caption {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
   // Arrows style
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
+    position: absolute;
+
+    top: 50%;
     background-image: url('../../assets/arrow-right.svg');
     background-color: hsla(0, 0%, 100%, 0.5);
     height: 67px;
@@ -48,15 +45,14 @@
   }
 
   .carousel-control-next-icon {
-    position: absolute;
     right: 0;
     border-right: none;
+    transform: translateY(-50%);
   }
   .carousel-control-prev-icon {
-    position: absolute;
     left: 0;
     border-left: none;
-    transform: rotate(180deg) translateY(-5%);
+    transform: rotate(180deg) translateY(50%);
   }
 
   // Arrows however on carousel
@@ -76,9 +72,9 @@
   // Carousel indicators
   .carousel-indicators {
     li {
-      border-radius: 100%;
       width: 10px;
       height: 10px;
+      border-radius: 100%;
       background: hsla(0, 0%, 100%, 0.5);
       border: 1px solid #999;
       transition: all 0.2s ease-in;

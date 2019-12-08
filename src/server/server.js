@@ -9,7 +9,7 @@ let merchandise = [
   {
     id: 1,
     itemName: 'Słuchawki',
-    imageUrl: 'http://lorempixel.com/400/200/technics/5/',
+    imageUrl: 'http://lorempixel.com/400/400/technics/5/',
     availableInRegions: [
       'PL-LB',
       'PL-ZP',
@@ -31,7 +31,7 @@ let merchandise = [
   {
     id: 2,
     itemName: 'Kurs języka angielskiego',
-    imageUrl: 'http://lorempixel.com/400/200/business/3/',
+    imageUrl: 'http://lorempixel.com/400/400/business/3/',
     availableInRegions: [
       'PL-LB',
       'PL-ZP',
@@ -54,14 +54,14 @@ let merchandise = [
   {
     id: 3,
     itemName: 'Ipad 6',
-    imageUrl: 'http://lorempixel.com/400/200/technics/1/',
+    imageUrl: 'http://lorempixel.com/400/400/technics/1/',
     availableInRegions: ['PL-PM', 'PL-KP', 'PL-OP', 'PL-WN', 'PL-PD', 'PL-MZ'],
     description: 'Najnowszy Ipad 6'
   },
   {
     id: 4,
     itemName: 'Gramofon',
-    imageUrl: 'http://lorempixel.com/400/200/technics/2/',
+    imageUrl: 'http://lorempixel.com/400/400/technics/2/',
     availableInRegions: [
       'PL-PD',
       'PL-MZ',
@@ -77,7 +77,7 @@ let merchandise = [
   {
     id: 5,
     itemName: 'Odtwarzacz MP3',
-    imageUrl: 'http://lorempixel.com/400/200/technics/10/',
+    imageUrl: 'http://lorempixel.com/400/400/technics/10/',
     availableInRegions: [
       'PL-LB',
       'PL-ZP',

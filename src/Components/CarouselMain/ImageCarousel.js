@@ -3,9 +3,11 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ImageLazyLoad = ({ ...props }) => {
   const [imageHeightState, setImageHeightState] = useState(400);
-  const imageElement = document.createElement('img');
-  imageElement.src = props.src;
+  const { src } = props.src;
+
   useEffect(() => {
+    const imageElement = document.createElement('img');
+    imageElement.src = src;
     const getImageHeight = setInterval(function() {
       if (imageElement.naturalHeight) {
         clearInterval(getImageHeight);
@@ -15,7 +17,7 @@ const ImageLazyLoad = ({ ...props }) => {
     return () => {
       clearInterval(getImageHeight);
     };
-  }, []);
+  }, [src]);
 
   return (
     <LazyLoadImage
