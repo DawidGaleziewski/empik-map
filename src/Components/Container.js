@@ -22,8 +22,7 @@ const Container = () => {
   const [regionState, setRegionState] = useState(null);
   const onClickHandler = event => {
     const {
-      target: { id },
-      target: { classList }
+      target: { id }
     } = event;
 
     if (id.match(/^(PL-)/)) {
