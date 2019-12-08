@@ -48,13 +48,14 @@ const Container = () => {
 
       <main className="main">
         <h1 className="main-header">Empik lokalne promocje</h1>
-        {!regionState ? <Map onClick={onClickHandler} /> : null}
+        <Map onClick={onClickHandler} />
 
         {regionState ? (
           <CarouselMain
             merchansideList={[...merchandiseState]}
             setCarouselIndexState={setCarouselIndexState}
             carouselIndexState={carouselIndexState}
+            setRegionState={setRegionState}
           />
         ) : null}
       </main>
