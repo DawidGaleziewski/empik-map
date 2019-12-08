@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Map.css';
+import './Map.scss';
 
 const Map = ({ onClick }) => {
   return (

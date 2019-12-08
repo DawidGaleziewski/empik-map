@@ -37,7 +37,7 @@
   // Arrows style
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    background-image: url('../assets/arrow-right.svg');
+    background-image: url('../../assets/arrow-right.svg');
     background-color: hsla(0, 0%, 100%, 0.5);
     height: 67px;
     width: 41px;
@@ -68,7 +68,7 @@
   // Single arrow however
   .carousel-control-prev-icon:hover,
   .carousel-control-next-icon:hover {
-    background-image: url('../assets/arrow-hover.svg');
+    background-image: url('../../assets/arrow-hover.svg');
     background-color: #fff;
     box-shadow: -3px 0 3px rgba(0, 0, 0, 0.3);
   }

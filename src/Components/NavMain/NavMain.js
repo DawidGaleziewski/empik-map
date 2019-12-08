@@ -1,8 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import './NavMain.scss';
-import { ReactComponent as EmpikLogo } from '../assets/empik-logo.svg';
-import { ReactComponent as EmpikToggleButton } from '../assets/empik-toggle-button.svg';
+import { ReactComponent as EmpikLogo } from '../../assets/empik-logo.svg';
 
 const NavMain = () => {
   return (

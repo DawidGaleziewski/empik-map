@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './Container.scss';
-import NavMain from './Components/NavMain';
-import CarouselMain from './Components/CarouselMain';
-import Map from './Components/Map';
+import NavMain from './NavMain/NavMain';
+import CarouselMain from './CarouselMain/CarouselMain';
+import Map from './Map/Map';
 import axios from 'axios';
 
 const filterMerchandise = (merchandiseList, regionID) => {
