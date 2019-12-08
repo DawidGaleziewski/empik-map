@@ -29,6 +29,14 @@
   stroke-width: 0.5;
 }
 
+.land__label {
+  // top: 0;
+  // left: 0;
+  // position: absolute;
+  // z-index: 10;
+  background-color: red;
+}
+
 .land:hover {
   fill: #000;
 }

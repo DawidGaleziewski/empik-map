@@ -21,6 +21,7 @@ const deselectLand = regionState => {
 const Container = () => {
   const [regionState, setRegionState] = useState(null);
   const onClickHandler = event => {
+    console.log(event.target);
     const {
       target: { id }
     } = event;

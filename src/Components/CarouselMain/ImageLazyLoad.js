@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ImageLazyLoad = ({ ...props }) => {
   const [imageHeightState, setImageHeightState] = useState(400);
   const imageElement = document.createElement('img');
   imageElement.src = props.src;
-  const getImageHeight = setInterval(function() {
-    if (imageElement.naturalHeight) {
+  useEffect(() => {
+    const getImageHeight = setInterval(function() {
+      if (imageElement.naturalHeight) {
+        clearInterval(getImageHeight);
+        setImageHeightState(imageElement.naturalHeight);
+      }
+    }, 10);
+    return () => {
       clearInterval(getImageHeight);
-      setImageHeightState(imageElement.naturalHeight);
-    }
-  }, 10);
+    };
+  }, []);
 
   return (
     <LazyLoadImage
