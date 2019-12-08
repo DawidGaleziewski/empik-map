@@ -11,6 +11,13 @@ const filterMerchandise = (merchandiseList, regionID) => {
   });
 };
 
+const deselectLand = regionState => {
+  const UIPreviousLand = document.getElementById(regionState);
+  if (UIPreviousLand) {
+    UIPreviousLand.classList.toggle('land-toggled');
+  }
+};
+
 const Container = () => {
   const [regionState, setRegionState] = useState(null);
   const onClickHandler = event => {
@@ -20,11 +27,6 @@ const Container = () => {
     } = event;
 
     if (id.match(/^(PL-)/)) {
-      const UIPreviousLand = document.getElementById(regionState);
-      if (UIPreviousLand) {
-        UIPreviousLand.classList.toggle('land-toggled');
-      }
-
       const UILand = document.getElementById(id);
       UILand.classList.toggle('land-toggled');
       setRegionState(id);
@@ -56,6 +58,8 @@ const Container = () => {
             setCarouselIndexState={setCarouselIndexState}
             carouselIndexState={carouselIndexState}
             setRegionState={setRegionState}
+            regionState={regionState}
+            deselectLand={deselectLand}
           />
         ) : null}
       </main>

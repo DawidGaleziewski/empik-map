@@ -29,7 +29,10 @@
   stroke-width: 0.5;
 }
 
-.land:hover,
-.land-toggled {
+.land:hover {
   fill: #000;
+}
+
+.land-toggled {
+  fill: #3545e6;
 }

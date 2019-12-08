@@ -18,12 +18,20 @@
   transition: opacity 1.5s ease-in-out;
   opacity: 0;
 
-  .main-header {
-    border-bottom: 1px solid #dee1e6;
+  .btn-close-carousel {
+    display: inline-block;
+    background: red;
+    vertical-align: top;
   }
+
+  .main-header {
+    vertical-align: top;
+    border-bottom: 1px solid #dee1e6;
+    display: inline;
+  }
+
   max-width: 40rem;
   margin: 15px auto 0 auto;
-
   border-bottom: 1px solid #dee1e6;
 
   // Arrows style

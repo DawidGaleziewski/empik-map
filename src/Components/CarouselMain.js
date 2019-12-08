@@ -7,13 +7,16 @@ const CarouselMain = ({
   merchansideList,
   setCarouselIndexState,
   carouselIndexState,
-  setRegionState
+  setRegionState,
+  regionState,
+  deselectLand
 }) => {
   const onSelectHandler = (selectedIndex, event) => {
     setCarouselIndexState(selectedIndex);
   };
 
   const closeSectionHandler = () => {
+    deselectLand(regionState);
     setRegionState(null);
   };
 
@@ -31,7 +34,15 @@ const CarouselMain = ({
         id="carousel-mask"
         className="carousel-mask"
       ></div>
+
       <section id="carousel-main" className="carousel-main">
+        <button
+          onClick={closeSectionHandler}
+          type="button"
+          className="close btn-close-carousel"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
         {merchansideList.length > 0 ? (
           <Fragment>
             <h2 className="main-header">Dostępne w Twoim województwie</h2>
