@@ -29,12 +29,6 @@ const CarouselMain = ({
 
   return (
     <Fragment>
-      <div
-        onClick={closeSectionHandler}
-        id="carousel-mask"
-        className="carousel-mask"
-      ></div>
-
       <section id="carousel-main" className="carousel-main">
         <button
           onClick={closeSectionHandler}
@@ -70,6 +64,11 @@ const CarouselMain = ({
           <h2 className="main-header">Brak promocji na tym terenie</h2>
         )}
       </section>
+      <div
+        onClick={closeSectionHandler}
+        id="carousel-mask"
+        className="carousel-mask"
+      ></div>
     </Fragment>
   );
 };

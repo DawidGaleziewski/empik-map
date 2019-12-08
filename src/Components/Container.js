@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import './Container.scss';
 import NavMain from './NavMain/NavMain';
 import CarouselMain from './CarouselMain/CarouselMain';
@@ -11,21 +11,27 @@ const filterMerchandise = (merchandiseList, regionID) => {
   });
 };
 
-const deselectLand = regionState => {
-  const UIPreviousLand = document.getElementById(regionState);
-  if (UIPreviousLand) {
-    UIPreviousLand.classList.toggle('land-toggled');
-  }
-};
-
 const Container = () => {
+  // Hooks
   const [regionState, setRegionState] = useState(null);
   const onClickHandler = event => {
-    console.log(event.target);
+    selectLand(event);
+  };
+  const [merchandiseState, setMerchandiseState] = useState([]);
+  const [carouselIndexState, setCarouselIndexState] = useState(0);
+
+  // Fetch data regarding selected region
+  useEffect(() => {
+    axios.get('/api/merchandise').then(({ data }) => {
+      setMerchandiseState(filterMerchandise(data, regionState));
+    });
+  }, [regionState]);
+
+  // Functions
+  const selectLand = clickEvent => {
     const {
       target: { id }
-    } = event;
-
+    } = clickEvent;
     if (id.match(/^(PL-)/)) {
       const UILand = document.getElementById(id);
       UILand.classList.toggle('land-toggled');
@@ -33,14 +39,12 @@ const Container = () => {
       setCarouselIndexState(0);
     }
   };
-  const [merchandiseState, setMerchandiseState] = useState([]);
-  useEffect(() => {
-    axios.get('/api/merchandise').then(({ data }) => {
-      setMerchandiseState(filterMerchandise(data, regionState));
-    });
-  }, [regionState]);
-
-  const [carouselIndexState, setCarouselIndexState] = useState(0);
+  const deselectLand = regionState => {
+    const UIPreviousLand = document.getElementById(regionState);
+    if (UIPreviousLand) {
+      UIPreviousLand.classList.toggle('land-toggled');
+    }
+  };
 
   return (
     <Fragment>
@@ -52,13 +56,14 @@ const Container = () => {
         <h1 className="main-header">Empik lokalne promocje</h1>
         <Map onClick={onClickHandler} />
 
+        {/* Render carousel only if the region was selected */}
         {regionState ? (
           <CarouselMain
-            merchansideList={[...merchandiseState]}
-            setCarouselIndexState={setCarouselIndexState}
-            carouselIndexState={carouselIndexState}
-            setRegionState={setRegionState}
             regionState={regionState}
+            setRegionState={setRegionState}
+            carouselIndexState={carouselIndexState}
+            setCarouselIndexState={setCarouselIndexState}
+            merchansideList={[...merchandiseState]}
             deselectLand={deselectLand}
           />
         ) : null}

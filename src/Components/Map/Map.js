@@ -4,7 +4,6 @@ import Land from './Land';
 
 const Map = ({ onClick }) => {
   const { regions } = require('./regions.json');
-  console.log(regions);
 
   return (
     <section onClick={onClick} className="map-section">
