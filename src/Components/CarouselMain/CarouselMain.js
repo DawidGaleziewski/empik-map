@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import Header from './Header';
 import ImageCarousel from './ImageCarousel';
 import { Carousel } from 'react-bootstrap';
+import { ReactComponent as ImageItemNotFound } from '../../assets/undraw_empty.svg';
 import './CarouselMain.scss';
 
 const CarouselMain = ({
@@ -70,10 +71,13 @@ const CarouselMain = ({
           </Fragment>
         ) : (
           // Inform no items are available for region
-          <Header
-            titleText={'Brak promocji w Twoim województwie'}
-            closeCarouselHandler={closeCarouselHandler}
-          />
+          <Fragment>
+            <Header
+              titleText={`Brak promocji w ${regionNameState}`}
+              closeCarouselHandler={closeCarouselHandler}
+            />
+            <ImageItemNotFound className="img--not-found" />
+          </Fragment>
         )}
       </section>
     </Fragment>
