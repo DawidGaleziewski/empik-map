@@ -1,5 +1,11 @@
 .navbar.main-nav {
   background-color: #000;
+  color: #fff;
+
+  .nav-link.main-nav__link {
+    color: #fff;
+  }
+
   .main-nav__toggle-button {
     border: none;
     color: #fff;

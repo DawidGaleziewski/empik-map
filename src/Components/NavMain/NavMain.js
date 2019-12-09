@@ -15,8 +15,12 @@ const NavMain = () => {
       </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="https://www.empik.com/">Strona główna</Nav.Link>
-          <Nav.Link href="#link">Kontakt</Nav.Link>
+          <Nav.Link className="main-nav__link" href="https://www.empik.com/">
+            Strona główna
+          </Nav.Link>
+          <Nav.Link className="main-nav__link" href="#link">
+            Kontakt
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

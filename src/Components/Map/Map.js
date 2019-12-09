@@ -2,13 +2,11 @@ import React from 'react';
 import './Map.scss';
 import Land from './Land';
 
-const Map = ({ onClick }) => {
-  const { regions } = require('./regions.json');
-
+const Map = ({ onClick, regionsList }) => {
   return (
     <section onClick={onClick} className="map-section">
       <svg className="map-svg" viewBox="-20 -20 650 620">
-        {regions.map(regionData => {
+        {regionsList.map(regionData => {
           return <Land key={regionData.id} regionData={regionData} />;
         })}
       </svg>

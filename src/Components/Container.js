@@ -1,9 +1,12 @@
 import React, { Fragment, useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import './Container.scss';
 import NavMain from './NavMain/NavMain';
 import CarouselMain from './CarouselMain/CarouselMain';
 import Map from './Map/Map';
-import axios from 'axios';
+import Footer from './Footer/Footer';
+
+const { regions: regionsList } = require('../data/regions.json');
 
 const filterMerchandise = (merchandiseList, regionID) => {
   return merchandiseList.filter(merchandise => {
@@ -54,7 +57,7 @@ const Container = () => {
 
       <main className="main">
         <h1 className="main-header">Empik lokalne promocje</h1>
-        <Map onClick={onClickHandler} />
+        <Map onClick={onClickHandler} regionsList={regionsList} />
 
         {/* Render carousel only if the region was selected */}
         {regionState ? (
@@ -68,6 +71,7 @@ const Container = () => {
           />
         ) : null}
       </main>
+      <Footer regionsList={regionsList} />
     </Fragment>
   );
 };
