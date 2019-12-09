@@ -1,5 +1,12 @@
 import React, { Fragment } from 'react';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Dropdown,
+  NavLink,
+  NavItem
+} from 'react-bootstrap';
 import './Footer.scss';
 
 const Footer = ({ regionsList }) => {
@@ -12,7 +19,7 @@ const Footer = ({ regionsList }) => {
         expanded
         expand="lg"
         variant="dark"
-        fixed="bottom"
+        // fixed="bottom"
       >
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
@@ -29,6 +36,7 @@ const Footer = ({ regionsList }) => {
               title="Regionalne promocje"
               id="collasible-nav-dropdown"
               className="nav__link"
+              drop="top"
             >
               {regionsList.map((region, index) => {
                 return (

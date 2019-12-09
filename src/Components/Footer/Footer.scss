@@ -4,7 +4,7 @@
 }
 
 .footer__nav.navbar.navbar-dark {
-  background-color: inherit;
+  background-color: #000;
   color: inherit;
 
   .nav__link,
@@ -12,11 +12,11 @@
     color: inherit;
 
     .dropdown-menu {
-      background-color: inherit;
+      background-color: #000;
       color: inherit;
     }
     .dropdown-item {
-      background-color: inherit;
+      background-color: #000;
       color: inherit;
       text-transform: capitalize;
     }

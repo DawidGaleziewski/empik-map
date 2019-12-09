@@ -7,7 +7,6 @@ import Map from './Map/Map';
 import Footer from './Footer/Footer';
 
 const { regions: regionsList } = require('../data/regions.json');
-
 const filterMerchandise = (merchandiseList, regionID) => {
   return merchandiseList.filter(merchandise => {
     return merchandise.availableInRegions.includes(regionID);
@@ -25,8 +24,9 @@ const Container = () => {
 
   // Fetch data regarding selected region
   useEffect(() => {
-    axios.get('/api/merchandise').then(({ data }) => {
-      setMerchandiseState(filterMerchandise(data, regionState));
+    axios.get('/merchandise.json').then(({ data }) => {
+      const { merchandise } = data;
+      setMerchandiseState(filterMerchandise(merchandise, regionState));
     });
   }, [regionState]);
 
