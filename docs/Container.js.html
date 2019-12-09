@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Container.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Container.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+
+// Npm packages
+import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// Style
+import './Container.scss';
+
+// Components
+import Mask from './Mask/Mask';
+import NavMain from './NavMain/NavMain';
+import CarouselMain from './CarouselMain/CarouselMain';
+import Map from './Map/Map';
+import Description from './Description/Description';
+import Footer from './Footer/Footer';
+
+// @ts-ignore
+const { regions: regionsList } = require('../data/regions.json');
+
+/**
+ * filterMerchandise - filters out region selected on the map
+ * @param {Array&lt;object>} merchandiseList
+ * @param {String} regionID - state changing via on click event on the map
+ * @returns {Array&lt;object>}
+ */
+const filterMerchandise = (merchandiseList, regionID) => {
+  return merchandiseList.filter(merchandise => {
+    return merchandise.availableInRegions.includes(regionID);
+  });
+};
+
+/**
+ * Bootstraping all components
+ */
+const Container = () => {
+  /**
+   *  @typedef {(String|Null)} regionState - stores currently selected region on map
+   */
+  const [regionState, setRegionState] = useState(null);
+  const onClickHandler = event => {
+    selectLand(event);
+  };
+  /**
+   * @typedef {Array.&lt;Object>} merchandiseState - stores array of objects. Items for sale.
+   */
+  const [merchandiseState, setMerchandiseState] = useState([]);
+  /**
+   * @typedef {{Number}} carouselIndexState - stores current slide index on carousel
+   */
+  const [carouselIndexState, setCarouselIndexState] = useState(0);
+
+  /**
+   * Fetch data with all merchendise.
+   */
+  useEffect(() => {
+    axios.get('/merchandise.json').then(({ data }) => {
+      const { merchandise } = data;
+      setMerchandiseState(filterMerchandise(merchandise, regionState));
+    });
+  }, [regionState]);
+
+  /**
+   * selectLand - Operations done after region is clicked on map
+   * @param {Event} clickEvent
+   * @returns {void}
+   */
+  const selectLand = clickEvent => {
+    const {
+      // @ts-ignore
+      target: { id }
+    } = clickEvent;
+    if (id.match(/^(PL-)/)) {
+      setRegionState(id);
+      setCarouselIndexState(0);
+    }
+  };
+
+  /**
+   * Clears all actions regarding previously selected region
+   */
+  const closeCarouselHandler = () => {
+    setRegionState(null);
+  };
+
+  return (
+    &lt;Router>
+      {/* Route for mask */}
+      &lt;Route
+        path="/merchandise/"
+        render={props => &lt;Mask closeCarouselHandler={closeCarouselHandler} />}
+      />
+      &lt;header>
+        &lt;NavMain />
+      &lt;/header>
+
+      &lt;main className="main">
+        &lt;h1 className="main-header">Empik lokalne promocje&lt;/h1>
+        &lt;Description />
+        &lt;Map onClick={onClickHandler} regionsList={regionsList} />
+
+        {/* Render carousel only if the region was selected */}
+        &lt;Route
+          path="/merchandise"
+          render={props => (
+            &lt;CarouselMain
+              regionState={regionState}
+              regionsList={regionsList}
+              setRegionState={setRegionState}
+              carouselIndexState={carouselIndexState}
+              setCarouselIndexState={setCarouselIndexState}
+              merchansideList={[...merchandiseState]}
+              closeCarouselHandler={closeCarouselHandler}
+            />
+          )}
+        />
+      &lt;/main>
+      &lt;Footer regionsList={regionsList} />
+    &lt;/Router>
+  );
+};
+
+export default Container;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CarouselMain">CarouselMain</a></li><li><a href="global.html#Container">Container</a></li><li><a href="global.html#Description">Description</a></li><li><a href="global.html#filterMerchandise">filterMerchandise</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#ImageLazyLoad">ImageLazyLoad</a></li><li><a href="global.html#Land">Land</a></li><li><a href="global.html#Map">Map</a></li><li><a href="global.html#Mask">Mask</a></li><li><a href="global.html#NavMain">NavMain</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Dec 09 2019 22:13:22 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
