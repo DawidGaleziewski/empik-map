@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import Header from './Header';
 import ImageCarousel from './ImageCarousel';
 import { Carousel } from 'react-bootstrap';
@@ -9,14 +9,26 @@ const CarouselMain = ({
   setCarouselIndexState,
   carouselIndexState,
   closeCarouselHandler,
-  setRegionState,
   regionState,
-  deselectLand
+  deselectLand,
+  regionsList
 }) => {
   // Hooks
   useEffect(() => {
     onMountUIHandler();
   }, []);
+
+  const findRegionFullName = (regionsList, regionState) => {
+    const regionName = regionsList.filter(region => {
+      return region.id === regionState;
+    })[0].regionFullName;
+
+    return regionName;
+  };
+
+  const [regionNameState, setRegionNameState] = useState(
+    findRegionFullName(regionsList, regionState)
+  );
 
   // Functions
   const onMountUIHandler = () => {
@@ -33,7 +45,7 @@ const CarouselMain = ({
         {merchansideList.length > 0 ? (
           <Fragment>
             <Header
-              titleText={'Dostępne w Twoim województwie'}
+              titleText={`Dostępne w ${regionNameState}`}
               closeCarouselHandler={closeCarouselHandler}
             />
             <Carousel

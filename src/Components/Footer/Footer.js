@@ -14,15 +14,6 @@ const Footer = ({ regionsList }) => {
       >
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link className="nav__link" href="https://empik.com">
-              Strona domowa
-            </Nav.Link>
-            <Nav.Link
-              className="nav__link"
-              href="https://www.empik.com/o-firmie"
-            >
-              O firmie
-            </Nav.Link>
             <NavDropdown
               title="Regionalne promocje"
               id="collasible-nav-dropdown"
@@ -38,6 +29,15 @@ const Footer = ({ regionsList }) => {
                 );
               })}
             </NavDropdown>
+            <Nav.Link className="nav__link" href="https://empik.com">
+              Strona domowa
+            </Nav.Link>
+            <Nav.Link
+              className="nav__link"
+              href="https://www.empik.com/o-firmie"
+            >
+              O firmie
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

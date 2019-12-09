@@ -7,6 +7,7 @@ import CarouselMain from './CarouselMain/CarouselMain';
 import Map from './Map/Map';
 import Footer from './Footer/Footer';
 
+// @ts-ignore
 const { regions: regionsList } = require('../data/regions.json');
 const filterMerchandise = (merchandiseList, regionID) => {
   return merchandiseList.filter(merchandise => {
@@ -72,6 +73,7 @@ const Container = () => {
         {regionState ? (
           <CarouselMain
             regionState={regionState}
+            regionsList={regionsList}
             setRegionState={setRegionState}
             carouselIndexState={carouselIndexState}
             setCarouselIndexState={setCarouselIndexState}
