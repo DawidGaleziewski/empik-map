@@ -3,7 +3,7 @@
     {
       "id": 1,
       "itemName": "Słuchawki",
-      "imageUrl": "http://lorempixel.com/400/400/technics/5/",
+      "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
       "availableInRegions": [
         "PL-LB",
         "PL-ZP",
@@ -25,7 +25,7 @@
     {
       "id": 2,
       "itemName": "Kurs języka angielskiego",
-      "imageUrl": "http://lorempixel.com/400/400/business/3/",
+      "imageUrl": "https://images.unsplash.com/photo-1534030422872-13302ecaefa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1039&q=80",
       "availableInRegions": [
         "PL-LB",
         "PL-ZP",
@@ -48,7 +48,7 @@
     {
       "id": 3,
       "itemName": "Ipad 6",
-      "imageUrl": "http://lorempixel.com/400/400/technics/1/",
+      "imageUrl": "https://images.unsplash.com/photo-1557825835-70d97c4aa567?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
       "availableInRegions": [
         "PL-PM",
         "PL-KP",
@@ -62,7 +62,7 @@
     {
       "id": 4,
       "itemName": "Gramofon",
-      "imageUrl": "http://lorempixel.com/400/400/technics/2/",
+      "imageUrl": "https://images.unsplash.com/photo-1518893883800-45cd0954574b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=674&q=80",
       "availableInRegions": [
         "PL-PD",
         "PL-MZ",
@@ -78,7 +78,7 @@
     {
       "id": 5,
       "itemName": "Odtwarzacz MP3",
-      "imageUrl": "http://lorempixel.com/400/400/technics/10/",
+      "imageUrl": "https://images.unsplash.com/photo-1421757350652-9f65a35effc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80",
       "availableInRegions": [
         "PL-LB",
         "PL-ZP",
@@ -88,7 +88,7 @@
         "PL-OP",
         "PL-WN"
       ],
-      "description": "Gramofony w stylu vintage"
+      "description": "Odtwarzacz MP3 w nowym stylu"
     }
   ]
 }

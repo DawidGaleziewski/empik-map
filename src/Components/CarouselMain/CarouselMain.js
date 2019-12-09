@@ -21,7 +21,6 @@ const CarouselMain = ({
   // Functions
   const onMountUIHandler = () => {
     const UICarouselMain = document.getElementById('carousel-main');
-    const UICarouselMask = document.getElementById('carousel-mask');
     UICarouselMain.style.opacity = '1';
   };
   const onSelectHandler = (selectedIndex, event) => {
