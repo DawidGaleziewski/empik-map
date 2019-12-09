@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import './Container.scss';
-import Mask from './Mask';
+import Mask from './Mask/Mask';
 import NavMain from './NavMain/NavMain';
 import CarouselMain from './CarouselMain/CarouselMain';
 import Map from './Map/Map';
+import Description from './Description/Description';
 import Footer from './Footer/Footer';
 
 // @ts-ignore
@@ -67,6 +68,7 @@ const Container = () => {
 
       <main className="main">
         <h1 className="main-header">Empik lokalne promocje</h1>
+        <Description />
         <Map onClick={onClickHandler} regionsList={regionsList} />
 
         {/* Render carousel only if the region was selected */}
