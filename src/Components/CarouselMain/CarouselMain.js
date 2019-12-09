@@ -8,6 +8,7 @@ const CarouselMain = ({
   merchansideList,
   setCarouselIndexState,
   carouselIndexState,
+  closeCarouselHandler,
   setRegionState,
   regionState,
   deselectLand
@@ -22,26 +23,14 @@ const CarouselMain = ({
     const UICarouselMain = document.getElementById('carousel-main');
     const UICarouselMask = document.getElementById('carousel-mask');
     UICarouselMain.style.opacity = '1';
-    UICarouselMask.style.opacity = '0.5';
   };
   const onSelectHandler = (selectedIndex, event) => {
     setCarouselIndexState(selectedIndex);
   };
 
-  const closeCarouselHandler = () => {
-    deselectLand(regionState);
-    setRegionState(null);
-  };
-
   return (
     <Fragment>
-      <div
-        onClick={closeCarouselHandler}
-        id="carousel-mask"
-        className="carousel-mask"
-      ></div>
       <section id="carousel-main" className="carousel-main">
-        {/* Render carousel if there are any items to show */}
         {merchansideList.length > 0 ? (
           <Fragment>
             <Header

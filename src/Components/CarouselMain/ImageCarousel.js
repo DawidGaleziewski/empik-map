@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Placeholder from '../../assets/test.jpeg';
 
 const ImageLazyLoad = ({ ...props }) => {
   const [imageHeightState, setImageHeightState] = useState(400);

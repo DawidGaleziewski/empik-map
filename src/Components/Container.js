@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './Container.scss';
+import Mask from './Mask';
 import NavMain from './NavMain/NavMain';
 import CarouselMain from './CarouselMain/CarouselMain';
 import Map from './Map/Map';
@@ -49,8 +50,16 @@ const Container = () => {
     }
   };
 
+  const closeCarouselHandler = () => {
+    deselectLand(regionState);
+    setRegionState(null);
+  };
+
   return (
     <Fragment>
+      {regionState ? (
+        <Mask closeCarouselHandler={closeCarouselHandler} />
+      ) : null}
       <header>
         <NavMain />
       </header>
@@ -68,6 +77,7 @@ const Container = () => {
             setCarouselIndexState={setCarouselIndexState}
             merchansideList={[...merchandiseState]}
             deselectLand={deselectLand}
+            closeCarouselHandler={closeCarouselHandler}
           />
         ) : null}
       </main>
