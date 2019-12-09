@@ -5,20 +5,30 @@ import { Carousel } from 'react-bootstrap';
 import { ReactComponent as ImageItemNotFound } from '../../assets/undraw_empty.svg';
 import './CarouselMain.scss';
 
+/**
+ * Render Carousel with slider
+ */
 const CarouselMain = ({
   merchansideList,
   setCarouselIndexState,
   carouselIndexState,
   closeCarouselHandler,
   regionState,
-  deselectLand,
   regionsList
 }) => {
-  // Hooks
+  /**
+   * Adds css transitions only after the component was mounted
+   */
   useEffect(() => {
     onMountUIHandler();
   }, []);
 
+  /**
+   * Returns full name of the region i.e from PL-DS => Dolno-Śląskie
+   * @param {Array} regionsList
+   * @param {String} regionState
+   * @returns {String}
+   */
   const findRegionFullName = (regionsList, regionState) => {
     const regionName = regionsList.filter(region => {
       return region.id === regionState;
@@ -27,15 +37,24 @@ const CarouselMain = ({
     return regionName;
   };
 
+  /**
+   * @typedef {String} regionNameState - stores full name of the region
+   */
   const [regionNameState, setRegionNameState] = useState(
     findRegionFullName(regionsList, regionState)
   );
 
-  // Functions
+  /**
+   * Handles transitions after this component is mounted
+   * @returns {void}
+   */
   const onMountUIHandler = () => {
     const UICarouselMain = document.getElementById('carousel-main');
     UICarouselMain.style.opacity = '1';
   };
+  /**
+   * Used by bootstrap to auto scroll the slider
+   */
   const onSelectHandler = (selectedIndex, event) => {
     setCarouselIndexState(selectedIndex);
   };

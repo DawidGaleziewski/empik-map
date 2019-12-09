@@ -2,6 +2,10 @@ import React, { Fragment } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import './Footer.scss';
 
+/**
+ * Footer - uses region list to render dynacmically list with regions and their promotions
+ * @param {*} param0
+ */
 const Footer = ({ regionsList }) => {
   return (
     <footer className="footer">

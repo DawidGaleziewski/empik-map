@@ -3,6 +3,9 @@ import { Navbar, Nav } from 'react-bootstrap';
 import './NavMain.scss';
 import { ReactComponent as EmpikLogo } from '../../assets/empik-logo.svg';
 
+/**
+ * Main navigation for the app
+ */
 const NavMain = () => {
   return (
     <Navbar className="main-nav" variant="dark" expand="lg">

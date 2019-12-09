@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.scss';
 
+// Renders header after  region was selected
 const Header = ({ titleText, closeCarouselHandler }) => {
   return (
     <header className="carousel-main__header">

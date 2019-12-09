@@ -1,6 +1,9 @@
 import React from 'react';
 import './Description.scss';
 
+/**
+ * Description for the site
+ */
 const Description = () => {
   return (
     <article className="description">

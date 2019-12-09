@@ -1,6 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
+
+// Style
 import './Container.scss';
+
+// Components
 import Mask from './Mask/Mask';
 import NavMain from './NavMain/NavMain';
 import CarouselMain from './CarouselMain/CarouselMain';
@@ -10,22 +14,42 @@ import Footer from './Footer/Footer';
 
 // @ts-ignore
 const { regions: regionsList } = require('../data/regions.json');
+
+/**
+ * filterMerchandise - filters out region selected on the map
+ * @param {Array<object>} merchandiseList
+ * @param {String} regionID - state changing via on click event on the map
+ * @returns {Array<object>}
+ */
 const filterMerchandise = (merchandiseList, regionID) => {
   return merchandiseList.filter(merchandise => {
     return merchandise.availableInRegions.includes(regionID);
   });
 };
 
+/**
+ * Bootstraping all components
+ */
 const Container = () => {
-  // Hooks
+  /**
+   *  @typedef {(String|Null)} regionState - stores currently selected region on map
+   */
   const [regionState, setRegionState] = useState(null);
   const onClickHandler = event => {
     selectLand(event);
   };
+  /**
+   * @typedef {Array.<Object>} merchandiseState - stores array of objects. Items for sale.
+   */
   const [merchandiseState, setMerchandiseState] = useState([]);
+  /**
+   * @typedef {{Number}} carouselIndexState - stores current slide index on carousel
+   */
   const [carouselIndexState, setCarouselIndexState] = useState(0);
 
-  // Fetch data regarding selected region
+  /**
+   * Fetch data with all merchendise.
+   */
   useEffect(() => {
     axios.get('/merchandise.json').then(({ data }) => {
       const { merchandise } = data;
@@ -33,7 +57,11 @@ const Container = () => {
     });
   }, [regionState]);
 
-  // Functions
+  /**
+   * selectLand - Operations done after region is clicked on map
+   * @param {Event} clickEvent
+   * @returns {void}
+   */
   const selectLand = clickEvent => {
     const {
       target: { id }
@@ -45,6 +73,12 @@ const Container = () => {
       setCarouselIndexState(0);
     }
   };
+
+  /**
+   * deselectLand - Operations done after region is clicked on map, deselecting the old region
+   * @param {String} regionState
+   * @returns {void}
+   */
   const deselectLand = regionState => {
     const UIPreviousLand = document.getElementById(regionState);
     if (UIPreviousLand) {
@@ -52,6 +86,9 @@ const Container = () => {
     }
   };
 
+  /**
+   * Clears all actions regarding previously selected region
+   */
   const closeCarouselHandler = () => {
     deselectLand(regionState);
     setRegionState(null);
