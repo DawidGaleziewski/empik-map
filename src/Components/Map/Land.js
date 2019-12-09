@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * Returns a single svg path drawing one region on the map
@@ -6,9 +7,9 @@ import React from 'react';
 const Land = ({ regionData }) => {
   const { id, regionFullName, svgPathDraw } = regionData;
   return (
-    <a className="land" title={regionFullName}>
+    <Link className="land" to="/merchandise" title={regionFullName}>
       <path d={svgPathDraw} id={id} />
-    </a>
+    </Link>
   );
 };
 

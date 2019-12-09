@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
 import './Footer.scss';
 
 /**
  * Footer - uses region list to render dynacmically list with regions and their promotions
  * @param {*} param0
  */
-const Footer = ({ regionsList }) => {
+const Footer = ({ regionsList, setRegionState }) => {
   return (
     <footer className="footer">
       <Navbar
@@ -18,21 +18,6 @@ const Footer = ({ regionsList }) => {
       >
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <NavDropdown
-              title="Regionalne promocje"
-              id="collasible-nav-dropdown"
-              className="nav__link"
-            >
-              {regionsList.map((region, index) => {
-                return (
-                  <Fragment key={region.id}>
-                    <NavDropdown.Item href="#action/3.1">
-                      {region.regionFullName}
-                    </NavDropdown.Item>
-                  </Fragment>
-                );
-              })}
-            </NavDropdown>
             <Nav.Link className="nav__link" href="https://empik.com">
               Strona domowa
             </Nav.Link>

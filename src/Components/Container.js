@@ -1,5 +1,8 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+// Npm packages
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Style
 import './Container.scss';
@@ -64,25 +67,12 @@ const Container = () => {
    */
   const selectLand = clickEvent => {
     const {
+      // @ts-ignore
       target: { id }
     } = clickEvent;
     if (id.match(/^(PL-)/)) {
-      const UILand = document.getElementById(id);
-      UILand.classList.toggle('land-toggled');
       setRegionState(id);
       setCarouselIndexState(0);
-    }
-  };
-
-  /**
-   * deselectLand - Operations done after region is clicked on map, deselecting the old region
-   * @param {String} regionState
-   * @returns {void}
-   */
-  const deselectLand = regionState => {
-    const UIPreviousLand = document.getElementById(regionState);
-    if (UIPreviousLand) {
-      UIPreviousLand.classList.toggle('land-toggled');
     }
   };
 
@@ -90,15 +80,16 @@ const Container = () => {
    * Clears all actions regarding previously selected region
    */
   const closeCarouselHandler = () => {
-    deselectLand(regionState);
     setRegionState(null);
   };
 
   return (
-    <Fragment>
-      {regionState ? (
-        <Mask closeCarouselHandler={closeCarouselHandler} />
-      ) : null}
+    <Router>
+      {/* Route for mask */}
+      <Route
+        path="/merchandise/"
+        render={props => <Mask closeCarouselHandler={closeCarouselHandler} />}
+      />
       <header>
         <NavMain />
       </header>
@@ -109,21 +100,23 @@ const Container = () => {
         <Map onClick={onClickHandler} regionsList={regionsList} />
 
         {/* Render carousel only if the region was selected */}
-        {regionState ? (
-          <CarouselMain
-            regionState={regionState}
-            regionsList={regionsList}
-            setRegionState={setRegionState}
-            carouselIndexState={carouselIndexState}
-            setCarouselIndexState={setCarouselIndexState}
-            merchansideList={[...merchandiseState]}
-            deselectLand={deselectLand}
-            closeCarouselHandler={closeCarouselHandler}
-          />
-        ) : null}
+        <Route
+          path="/merchandise"
+          render={props => (
+            <CarouselMain
+              regionState={regionState}
+              regionsList={regionsList}
+              setRegionState={setRegionState}
+              carouselIndexState={carouselIndexState}
+              setCarouselIndexState={setCarouselIndexState}
+              merchansideList={[...merchandiseState]}
+              closeCarouselHandler={closeCarouselHandler}
+            />
+          )}
+        />
       </main>
       <Footer regionsList={regionsList} />
-    </Fragment>
+    </Router>
   );
 };
 

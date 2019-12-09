@@ -9,7 +9,7 @@ const Description = () => {
     <article className="description">
       <h3 className="description__title">Wybierz województwo </h3>
       <p className="description__text">
-        Wybierz województwo dla którego chcesz zobaczyć promocje.
+        Wybierz województwo, dla którego chcesz zobaczyć promocje.
         <em className="description--strong">
           {' '}
           Czas promocji jest ograniczony czasowo.
