@@ -30,9 +30,11 @@ const CarouselMain = ({
    * @returns {String}
    */
   const findRegionFullName = (regionsList, regionState) => {
-    const regionName = regionsList.filter(region => {
-      return region.id === regionState;
-    })[0].regionFullName;
+    const regionName = regionState
+      ? regionsList.filter(region => {
+          return region.id === regionState;
+        })[0].regionFullName
+      : 'regionie';
 
     return regionName;
   };
@@ -92,7 +94,11 @@ const CarouselMain = ({
           // Inform no items are available for region
           <Fragment>
             <Header
-              titleText={`Brak promocji w ${regionNameState}`}
+              titleText={` ${
+                regionState
+                  ? `Brak promocji w ${regionNameState}`
+                  : 'Ups coś poszło nie tak'
+              }`}
               closeCarouselHandler={closeCarouselHandler}
             />
             <ImageItemNotFound className="img--not-found" />
