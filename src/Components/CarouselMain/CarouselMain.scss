@@ -12,6 +12,10 @@
   background-color: #000;
   z-index: 2;
 
+  &__title {
+    margin-bottom: 0;
+  }
+
   .carousel-item__caption {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
